@@ -1,5 +1,1 @@
-const twitterService = require('./twitter-service'); 
-
-var test = twitterService.getTweetByUserName('juandimatz').then(response => {
-    console.log(response)
-}).catch(err =>{console.log(err)})
+const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
