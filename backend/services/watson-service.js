@@ -23,4 +23,16 @@ async function analyzeText(myText){
     });
 }
 
-module.exports={analyzeText};
+async function analyzeTextChat(textComplete){
+    return new Promise((resolve,reject)=>{
+        toneAnalyzer.toneChat(textComplete,function(err,tone){
+            if(err){
+                reject(err);
+            }else{
+                resolve(tone);
+            }
+        });
+    });
+}
+
+module.exports={analyzeText,analyzeTextChat};
