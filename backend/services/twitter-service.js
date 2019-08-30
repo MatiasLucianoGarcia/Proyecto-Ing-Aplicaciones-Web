@@ -16,7 +16,8 @@ async function getTweetByUserName(user){
             screen_name: user,
             count:'200',
             exclude_replies:'true',
-            include_rts:'false'
+            include_rts:'false',
+            tweet_mode: 'extended'
         }
         client.get('statuses/user_timeline', params, function(error, tweets, response) {
 			if (error){
