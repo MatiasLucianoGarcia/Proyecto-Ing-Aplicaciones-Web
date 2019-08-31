@@ -19,7 +19,7 @@ async function getTweetByUserName(user){
             include_rts:'false',
             tweet_mode: 'extended'
         }
-        client.get('statuses/user_timeline', params, function(error, tweets, response) {
+        client.get('statuses/user_timeline', params, function(tweets, error,response) {
 			if (error){
 				reject(error)
 			}else{

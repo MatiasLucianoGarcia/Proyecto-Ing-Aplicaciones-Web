@@ -8,6 +8,7 @@ var app= express();
 //Carga Archivos Rutas
 let rutasTweeter= require('./routes/twitter-route');
 let rutasWatson = require('./routes/watson-route');
+let rutasAnalisis= require('./routes/analisis-route');
 
 //Middlewares
 app.use(bodyParser.urlencoded({extended:false}));
@@ -25,5 +26,6 @@ app.use((req, res, next) => {
 //Rutas
 app.use('/api',rutasTweeter);
 app.use('/api',rutasWatson);
+app.use('/api',rutasAnalisis);
 
 module.exports= app;
