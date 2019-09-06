@@ -11,7 +11,8 @@ async function analyzeText(myText){
     return new Promise((resolve,reject)=>{
         let params= {
             tone_input: myText,
-            content_type: 'text/plain'
+            content_type: 'text/plain',
+            sentences: 'false'
         }
         toneAnalyzer.tone(params,function(err,tone){
             if(err){
