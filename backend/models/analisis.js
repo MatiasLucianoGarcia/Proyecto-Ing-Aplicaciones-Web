@@ -1,4 +1,4 @@
-class analisis{
+class Analisis{
     
     constructor(user,img,
         anger,disgust,fear,joy,sadness,
@@ -19,4 +19,4 @@ class analisis{
     }
 }
 
-module.exports=analisis;
+module.exports=Analisis;
