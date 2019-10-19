@@ -5,6 +5,9 @@ import {DetailComponent} from './components/detail/detail.component';
 import {HomeComponent} from './components/home/home.component';
 import {ErrorComponent} from './components/error/error.component';
 
+
+
+
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'home', component: HomeComponent},

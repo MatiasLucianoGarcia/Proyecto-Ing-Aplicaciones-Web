@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -8,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   private titulo : String;
+  public texto: String;
 
-
-  constructor() { 
-    this.titulo="Sherlock"
+  constructor(private _router : Router, private _route:ActivatedRoute) { 
+    this.titulo="Sherlock";
+    this.texto="";
   }
 
   ngOnInit() {
@@ -20,4 +23,9 @@ export class HomeComponent implements OnInit {
   getTitulo():String{
     return this.titulo;
   }
+
+  onSubmit(form){
+    this._router.navigate(['detail/:user',{user:this.texto}]);
+  }
+
 }
