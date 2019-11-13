@@ -13,7 +13,7 @@ import { Analisis } from 'src/app/models/analisis';
 export class DetailComponent implements OnInit {
 
   private url: String;
-  private myANalisis: Analisis;
+  private myAnalisis: Analisis=new Analisis('UsuarioPrueba',null,0.33,0.22,0.111,0.01,0.0124,0.212,0.4312,0.7832,0.0021,0.451);
 
 
   constructor(
@@ -25,7 +25,8 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this._route.params.subscribe(params =>{
       let user =params.user;
-
+       
+      //this.myAnalisis = new Analisis('UsuarioPrueba',null,0.33,0.22,0.111,0.01,0.0124,0.212,0.4312,0.7832,0.0021,0.451);
       //console.log(this.getAnalisis(user));
     });
   }
@@ -34,7 +35,7 @@ export class DetailComponent implements OnInit {
     this._analisisService.getProject(user).subscribe(
     response=>{
         console.log(response);
-        this.myANalisis=response.analisis;
+        this.myAnalisis=response.analisis;
     },
     error=>{
       console.log(<any> error);
@@ -46,13 +47,16 @@ export class DetailComponent implements OnInit {
     responsive: true
   };
 
-  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels = ['Anger', 'Disgust', 'Fear', 'Joy', 'Sadness'];
   public barChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+    {data: [this.myAnalisis.getAnger(), this.myAnalisis.getDisgust(), this.myAnalisis.getFear(),this.myAnalisis.getJoy(), this.myAnalisis.getSadness()],
+     label: this.myAnalisis.getUserName(),
+     backgroundColor:['rgba(255, 102, 102, 1)','rgba(0,204,0, 1)','rgba(153, 102, 255, 1)','rgba(255, 204, 0, 1)','rgba(102, 204, 255 , 1)'],
+     hoverBackgroundColor:['rgba(255, 102, 102, 0.7)','rgba(0,204,0,0.7)','rgba(153, 102, 255, 0.7)','rgba(255, 204, 0, 0.7)','rgba(102, 204, 255 , 0.7)']
+    }
   ];
 
 
