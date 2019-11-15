@@ -19,6 +19,7 @@ export class DetailComponent implements OnInit {
   public barChartType;
   public barChartLegend; 
   public barChartData;
+  private analisisJson;
 
   constructor(
     private _analisisService: AnalisisService,
@@ -27,38 +28,55 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._route.params.subscribe(params =>{
+    this._route.params.subscribe(async params =>{
       let user =params.user;
-       
-      this.myAnalisis = new Analisis('UsuarioPrueba',null,0.33,0.22,0.111,0.01,0.0124,0.212,0.4312,0.7832,0.0021,0.451);
-      //console.log(this.getAnalisis(user));
+      this.setConfiguration(user);
       
-      this.barChartOptions = {
-        scaleShowVerticalLines: false,
-        responsive: true
-      };
-      this.barChartLabels = ['Anger', 'Disgust', 'Fear', 'Joy', 'Sadness'];
-      this.barChartType = 'bar';
-      this.barChartLegend = true;
-      this.barChartData = [
-        {data: [this.myAnalisis.getAnger(), this.myAnalisis.getDisgust(), this.myAnalisis.getFear(),this.myAnalisis.getJoy(), this.myAnalisis.getSadness()],
-         label: this.myAnalisis.getUserName(),
-         backgroundColor:['rgba(255, 102, 102, 1)','rgba(0,204,0, 1)','rgba(153, 102, 255, 1)','rgba(255, 204, 0, 1)','rgba(102, 204, 255 , 1)'],
-         hoverBackgroundColor:['rgba(255, 102, 102, 0.7)','rgba(0,204,0,0.7)','rgba(153, 102, 255, 0.7)','rgba(255, 204, 0, 0.7)','rgba(102, 204, 255 , 0.7)']
-        }
-      ];
+      //Codigo de Test 
+      //this.myAnalisis = new Analisis('UsuarioPrueba',"http://pbs.twimg.com/profile_images/668940727800471552/n5j2l2Dm_normal.jpg",0.33,0.22,0.111,0.01,0.0124,0.212,0.4312,0.7832,0.0021,0.451);
+      //this.setBarChart();
+      
     });
   }
 
-  getAnalisis(user){
+  setConfiguration(user){
     this._analisisService.getProject(user).subscribe(
     response=>{
-        console.log(response);
-        this.myAnalisis=response.analisis;
+        this.analisisJson = response.myAnalisis;
+        this.myAnalisis = new Analisis(this.analisisJson.user,
+          this.analisisJson.img,
+          this.analisisJson.anger,
+          this.analisisJson.disgust,
+          this.analisisJson.fear,
+          this.analisisJson.joy,
+          this.analisisJson.sadness,
+          this.analisisJson.openness,
+          this.analisisJson.conscientiousness,
+          this.analisisJson.extraversion,
+          this.analisisJson.agreeableness,
+          this.analisisJson.emotionalRange);
+          this.setBarChart();
     },
     error=>{
       console.log(<any> error);
     });
+  }
+
+  setBarChart(){
+    this.barChartOptions = {
+      scaleShowVerticalLines: false,
+      responsive: true
+    };
+    this.barChartLabels = ['Anger', 'Disgust', 'Fear', 'Joy', 'Sadness'];
+    this.barChartType = 'bar';
+    this.barChartLegend = true;
+    this.barChartData = [
+      {data: [this.myAnalisis.getAnger(), this.myAnalisis.getDisgust(), this.myAnalisis.getFear(),this.myAnalisis.getJoy(),this.myAnalisis.getSadness()],
+       label: this.myAnalisis.getUserName(),
+       backgroundColor:['rgba(255, 102, 102, 1)','rgba(0,204,0, 1)','rgba(153, 102, 255, 1)','rgba(255, 204, 0, 1)','rgba(102, 204, 255 , 1)'],
+       hoverBackgroundColor:['rgba(255, 102, 102, 0.7)','rgba(0,204,0,0.7)','rgba(153, 102, 255, 0.7)','rgba(255, 204, 0, 0.7)','rgba(102, 204, 255 , 0.7)']
+      }
+    ];
   }
 
 }
