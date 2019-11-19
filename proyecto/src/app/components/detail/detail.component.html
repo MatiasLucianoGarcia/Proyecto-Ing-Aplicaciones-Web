@@ -1,6 +1,16 @@
 <div *ngIf="myAnalisis == null" class="spinner-grow text-dark" role="status">
     <span class="sr-only">Loading...</span>
-</div>  
+</div> 
+<img src="http://pbs.twimg.com/profile_images/668940727800471552/n5j2l2Dm_normal.jpg"   >
+<div *ngIf="myAnalisis != null">
+    <div style="display: block">
+        <canvas baseChart
+            [datasets]="radarChartData"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType">
+        </canvas>
+    </div>
+</div>
 <div *ngIf="myAnalisis!=null"> 
     <div style="display: block">
         <canvas baseChart
@@ -12,3 +22,4 @@
         </canvas>
     </div>
 </div>
+
