@@ -67,7 +67,8 @@ export class DetailComponent implements OnInit {
           this.setRadarChart();
     },
     error=>{
-      console.log(<any> error);
+      //console.log(<any> error);
+      this._router.navigate(['error']);
     });
   }
 
