@@ -10,6 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ChartsModule} from 'ng2-charts';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {ChartsModule} from 'ng2-charts';
     AppComponent,
     DetailComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

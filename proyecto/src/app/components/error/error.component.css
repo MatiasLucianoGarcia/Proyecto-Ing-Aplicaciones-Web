@@ -16,8 +16,11 @@ body {
 }
 
 blockquote {
+	/*font-family: 'Dancing Script', cursive;*/
+	font-family: 'Baskervville', serif;
+
 	font-weight: 100;
-	font-size: 2rem;
+	font-size: 3rem;
 	max-width: 600px;
 	line-height: 1.4;
 	position: relative;
@@ -36,14 +39,14 @@ blockquote:after {
 
 blockquote:before {
 	content: '“';
-	left: -2rem;
+	left: -4rem;
 	top: -2rem;
 }
 
 blockquote:after {
 	content: '”';
-	right: -2rem;
-	bottom: 1rem;
+	right: 10rem;
+	bottom: 2rem;
 }
 
 cite {

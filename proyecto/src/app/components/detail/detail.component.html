@@ -1,3 +1,4 @@
+<!--
 <div *ngIf="myAnalisis == null" class="spinner-grow text-dark" role="status">
     <span class="sr-only">Loading...</span>
 </div> 
@@ -20,5 +21,13 @@
             [legend]="barChartLegend"
             [chartType]="barChartType">
         </canvas>
+    </div>
+</div>
+-->
+<div class="main d-flex justify-content-center ">
+    <div class="cargando ">
+        <div *ngIf="myAnalisis != null" class="spinner-grow text-dark conte-general " role="status">
+            <span class="sr-only">Loading...</span>
+        </div> 
     </div>
 </div>
