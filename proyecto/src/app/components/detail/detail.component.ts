@@ -95,7 +95,12 @@ export class DetailComponent implements OnInit {
     this.radarChartData = [
       {
         data: [this.myAnalisis.getOpenness(), this.myAnalisis.getConscientiousness(), this.myAnalisis.getExtraversion(),this.myAnalisis.getAgreeableness(),this.myAnalisis.getEmotionalRange()],
-        label: this.myAnalisis.getUserName()
+        label: this.myAnalisis.getUserName(),
+        backgroundColor: 'rgba(64, 64, 64,0.8)',
+        borderColor:'rgba(64, 64, 64,1)',
+        pointBackgroundColor:'rgba(64, 64, 64,1)',
+        pointBorderColor:'rgba(64, 64, 64,1)'
+
       }
     ];
   }

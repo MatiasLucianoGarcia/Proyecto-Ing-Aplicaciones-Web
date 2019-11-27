@@ -1,33 +1,45 @@
-<!--
-<div *ngIf="myAnalisis == null" class="spinner-grow text-dark" role="status">
-    <span class="sr-only">Loading...</span>
-</div> 
-<img src="http://pbs.twimg.com/profile_images/668940727800471552/n5j2l2Dm_normal.jpg"   >
-<div *ngIf="myAnalisis != null">
-    <div style="display: block">
-        <canvas baseChart
-            [datasets]="radarChartData"
-            [labels]="radarChartLabels"
-            [chartType]="radarChartType">
-        </canvas>
-    </div>
-</div>
-<div *ngIf="myAnalisis!=null"> 
-    <div style="display: block">
-        <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
-        </canvas>
-    </div>
-</div>
--->
-<div class="main d-flex justify-content-center ">
+<div *ngIf="myAnalisis == null" class="main d-flex justify-content-center ">
     <div class="cargando ">
-        <div *ngIf="myAnalisis != null" class="spinner-grow text-dark conte-general " role="status">
+        <div *ngIf="myAnalisis == null" class="spinner-grow text-dark conte-general " role="status">
             <span class="sr-only">Loading...</span>
         </div> 
     </div>
 </div>
+
+
+<div class="row m-3">
+    <div class="tarjeta col-12">
+        <img src={{myAnalisis.img}} alt="">
+        <p>{{myAnalisis.user}}</p>
+    </div>
+
+    <div class="col-6 grafico">
+        <!--Grafico Radar-->
+        <div *ngIf="myAnalisis != null">
+                <div style="display: block">
+                    <canvas baseChart
+                        [datasets]="radarChartData"
+                        [labels]="radarChartLabels"
+                        [chartType]="radarChartType">
+                    </canvas>
+                </div>
+            </div>
+
+    </div>
+    <div class="col-6 grafico">
+        <!--Grafico Barras-->
+            <div *ngIf="myAnalisis!=null"> 
+                    <div style="display: block">
+                        <canvas baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
