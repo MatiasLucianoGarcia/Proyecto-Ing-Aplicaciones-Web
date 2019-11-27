@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="row m-3">
+<div *ngIf="myAnalisis != null" class="row m-3">
     <div class="tarjeta col-12">
         <img src={{myAnalisis.img}} alt="">
         <p>{{myAnalisis.user}}</p>
