@@ -16,7 +16,6 @@ var controller={
             var sentimientos = objectAnalisis.document_tone.tone_categories[0];
             var personalidad = objectAnalisis.document_tone.tone_categories[2];
             var myAnalisis = new analisis(user,coleccionTweets[0].user.profile_image_url,sentimientos.tones[0].score,sentimientos.tones[1].score,sentimientos.tones[2].score,sentimientos.tones[3].score,sentimientos.tones[4].score,personalidad.tones[0].score,personalidad.tones[1].score,personalidad.tones[2].score,personalidad.tones[3].score,personalidad.tones[4].score,);
-            console.log("PITOOOO");
             console.log(JSON.stringify(objectAnalisis,null,2));
             console.log(JSON.stringify(sentimientos,null,2));
             console.log(sentimientos);
