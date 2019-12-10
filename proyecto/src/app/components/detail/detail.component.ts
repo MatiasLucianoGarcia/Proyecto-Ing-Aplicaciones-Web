@@ -37,12 +37,12 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this._route.params.subscribe(async params =>{
       let user =params.user;
-      //this.setConfiguration(user);
+      this.setConfiguration(user);
       
       //Codigo de Test 
-      this.myAnalisis = new Analisis('UsuarioPrueba',"http://pbs.twimg.com/profile_images/668940727800471552/n5j2l2Dm_normal.jpg",0.33,0.22,0.111,0.01,0.0124,0.212,0.4312,0.7832,0.0021,0.451);
-      this.setBarChart();
-      this.setRadarChart();
+      //this.myAnalisis = new Analisis('UsuarioPrueba',"http://pbs.twimg.com/profile_images/668940727800471552/n5j2l2Dm_normal.jpg",0.33,0.22,0.111,0.01,0.0124,0.212,0.4312,0.7832,0.0021,0.451);
+      //this.setBarChart();
+      //this.setRadarChart();
       
     });
   }
